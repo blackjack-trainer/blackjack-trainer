@@ -6,4 +6,4 @@ This website will give players without any experience in blackjack a chance to s
 
 ![WireFrame](img/Blackjack-trainer(3).jpg)
 
-
+[User Stories:](https://trello.com/b/4Y5l7Iwm/user-stories)
