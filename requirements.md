@@ -38,5 +38,5 @@ Functional Requirements
 
 List the functionality of your product. This will consist of tasks such as the following:
 
-A user can create profile name.
-A user can switch pages in navigation tabs.
+>A user can create profile name.
+>A user can switch pages in navigation tabs.
