@@ -82,7 +82,9 @@ function getRandomCard() {
 }
 
 
-
+let cardOne, cardTwo, cardThree, cardFour;
+let dealerScore = 0;
+let playerScore = 0;
 
 function renderCards() {
 
@@ -92,16 +94,16 @@ function renderCards() {
       indexCollection.push(randomNum);
     }
   }
-  let cardOne = indexCollection.shift();
-  let cardTwo = indexCollection.shift();
-  let cardThree = indexCollection.shift();
-  let cardFour = indexCollection.shift();
+  cardOne = indexCollection.shift();
+  cardTwo = indexCollection.shift();
+  cardThree = indexCollection.shift();
+  cardFour = indexCollection.shift();
 
 
   imageOne.src = allCards[cardOne].src;
   imageOne.alt = allCards[cardTwo].src;
-  console.log(allCards[cardOne].value + allCards[cardTwo].value);
-  console.log(allCards[cardThree].value + allCards[cardFour].value);
+  // console.log(allCards[cardOne].value + allCards[cardTwo].value);
+  // console.log(allCards[cardThree].value + allCards[cardFour].value);
 
   imageTwo.src = allCards[cardTwo].src;
   imageTwo.alt = allCards[cardTwo].src;
@@ -113,18 +115,28 @@ function renderCards() {
   imageFour.alt = allCards[cardFour].src;
 
   console.log(cardOne, cardTwo, cardThree, cardFour);
-
+  dealerScore += getScore(cardOne, cardTwo);
+  playerScore += getScore(cardThree, cardFour);
+  
 }
 
-let dealScore = document.getElementById('deal-score');
-let p = document.createElement('p');
-p.textContent = '33232';
-dealScore.appendChild(p);
-renderCards();
+// let dealScore = document.getElementById('deal-score');
+// let p = document.createElement('p');
+// p.textContent = `${dealer}`;
+// dealScore.appendChild(p);
 
-function dealerScore(cardOne, cardTwo) {
-  let dealer = (allCards[cardOne].value + allCards[cardTwo].value);
-  console.log(dealer);
+// renderCards()a;
+console.log(allCards)
+function getScore(firstCard, secondCard) {
+  // console.log('card one', allCards[firstCard].value);
+  // console.log(allCards[secondCard].value);
+  let score = (allCards[firstCard].value + allCards[secondCard].value);
+  // console.log('score', score);
+  if (score > 21){
+    return "bust"
+  } else {
+    return score
+  }
+  
 }
 
-dealerScore();
