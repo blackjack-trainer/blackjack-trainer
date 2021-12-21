@@ -145,7 +145,7 @@ function handleDeckClick() {
 
 function handleHitClick() {
   let hitCard = getRandomCard();
-  while (usedCards.includes(hitCard)) {
+  while (usedCards.includes(hitCard)){
     hitCard = getRandomCard();
   }
   usedCards.push(hitCard);
@@ -162,55 +162,55 @@ function handleHitClick() {
   p.textContent = `Player Score: ${playerScore}`;
   playerSec.appendChild(p);
 
-  if (playerScore >= 21) {
+  if (playerScore >= 21){
     hit.removeEventListener('click', handleHitClick);
   }
 
-  if (playerScore > 21) {
+  if (playerScore > 21){
     stand.removeEventListener('click', handleDeckStand);
   }
-
+  
 }
 
 function handleDeckStand() {
-  while (dealerScore < 21 && dealerScore < 17) {
-    let hitCard = getRandomCard();
-    while (usedCards.includes(hitCard)) {
-      hitCard = getRandomCard();
-    }
-    usedCards.push(hitCard);
+  while (dealerScore < 21 && dealerScore <17){
+  let hitCard = getRandomCard();
+  while (usedCards.includes(hitCard)){
+    hitCard = getRandomCard();
+  }
+  usedCards.push(hitCard);
 
-    dealerScore += allCards[hitCard].value;
-    let dealerSec = document.getElementById('dealer-cards');
-    let img = document.createElement('img');
-    img.src = allCards[hitCard].src;
-    dealerSec.appendChild(img);
-    let p2 = document.getElementById('p2');
-    p2.remove();
-    let p = document.createElement('p');
-    p.setAttribute('id', 'p2');
-    p.textContent = `Dealer Score: ${dealerScore}`;
-    dealerSec.appendChild(p);
-    if (playerScore > 21) {
-      hit.removeEventListener('click', handleHitClick);
-    }
-    if (playerScore > 21) {
-      stand.removeEventListener('click', handleDeckStand);
-    }
-    // endGameMessage();
-    // checkDealerCards();
-    stand.removeEventListener('click', handleDeckStand);
-    hit.removeEventListener('click', handleHitClick);
-  } if (dealerScore > 17) {
-    stand.removeEventListener('click', handleDeckStand);
+  dealerScore += allCards[hitCard].value;
+  let dealerSec = document.getElementById('dealer-cards');
+  let img = document.createElement('img');
+  img.src = allCards[hitCard].src;
+  dealerSec.appendChild(img);
+  let p2 = document.getElementById('p2');
+  p2.remove();
+  let p = document.createElement('p');
+  p.setAttribute('id', 'p2');
+  p.textContent = `Dealer Score: ${dealerScore}`;
+  dealerSec.appendChild(p);
+  if (playerScore > 21){
     hit.removeEventListener('click', handleHitClick);
   }
-  if (playerScore > dealerScore || dealerScore > 21) {
-    let article = document.getElementById('article');
-    let p = document.createElement('p');
-    p.textContent = (`You Win, Play Again? ${handleDeckClick}`)
-    // div.style.display = block;
-    article.appendChild(p);
+  if (playerScore > 21){
+    stand.removeEventListener('click', handleDeckStand);
+  }
+  // endGameMessage();
+  // checkDealerCards();
+  stand.removeEventListener('click', handleDeckStand);
+  hit.removeEventListener('click', handleHitClick);
+} if (dealerScore > 17){
+  stand.removeEventListener('click', handleDeckStand);
+  hit.removeEventListener('click', handleHitClick);
+}
+  if (playerScore > dealerScore || dealerScore>21){
+let article = document.getElementById('article');
+let p = document.createElement('p');
+p.textContent = (`You Win, Play Again? ${handleDeckClick}`)
+// div.style.display = block;
+article.appendChild(p);
 
   }
 }
@@ -224,8 +224,8 @@ function handleDeckStand() {
 // }
 
 
-function aces(a, b) {
-  while (dealerScore > 21) {
+function aces(a, b){
+  while (dealerScore> 21){
     allCards.value = 1;
   } if (allCards.value = 11);
 }
