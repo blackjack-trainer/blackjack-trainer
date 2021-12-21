@@ -14,7 +14,9 @@ let imageFive = document.getElementById('image-five');
 let deckOfCards = document.getElementById('deck-of-cards');
 let hit = document.getElementById('hit-button');
 let stand = document.getElementById('stand-button');
-
+let cardOne, cardTwo, cardThree, cardFour, cardFive;
+let dealerScore = 0;
+let playerScore = 0;
 
 
 
@@ -85,9 +87,7 @@ function getRandomCard() {
 }
 
 
-let cardOne, cardTwo, cardThree, cardFour, cardFive;
-let dealerScore = 0;
-let playerScore = 0;
+
 
 function renderCards() {
 
@@ -154,6 +154,12 @@ function handleHitClick() {
   p.setAttribute('id', 'p1');
   p.textContent = `Player Score: ${playerScore}`;
   playerSec.appendChild(p);
+  if (playerScore > 21){
+    hit.removeEventListener('click', handleHitClick);
+  }
+  if (playerScore > 21){
+    stand.removeEventListener('click', handleDeckStand);
+  }
   checkCards();
 }
 function checkCards() {
@@ -177,12 +183,25 @@ function handleDeckStand() {
   p.setAttribute('id', 'p2');
   p.textContent = `Dealer Score: ${dealerScore}`;
   dealerSec.appendChild(p);
+  if (playerScore > 21){
+    hit.removeEventListener('click', handleHitClick);
+  }
+  if (playerScore > 21){
+    stand.removeEventListener('click', handleDeckStand);
+  }
   checkDealerCards();
+  stand.removeEventListener('click', handleDeckStand);
+  hit.removeEventListener('click', handleHitClick);
 }
 function checkDealerCards() {
   if (dealerScore > 21) {
     alert('Dealer Bust You Win!');// always alerts before function.
   }
+}
+function aces(a, b){
+  while (dealerScore> 21){
+    allCards.value = 1;
+  } if (allCards.value = 11);
 }
 
 
