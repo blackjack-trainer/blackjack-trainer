@@ -138,6 +138,8 @@ function renderCards() {
 
 function handleDeckClick() {
   renderCards();
+  hit.addEventListener('click', handleHitClick);
+  stand.addEventListener('click', handleDeckStand);
   deckOfCards.removeEventListener('click', handleDeckClick)
 }
 
@@ -167,28 +169,11 @@ function handleHitClick() {
   if (playerScore > 21){
     stand.removeEventListener('click', handleDeckStand);
   }
-  checkCards();
+  
 }
-function checkCards() {
-  while (dealerScore < 17){
-    handleDeckStand();
-    while (dealerScore > 17){
-      // endGame();
-    }
-  }
-  // if (playerScore > 21) {
-  //   alert('You lost');
-  // }
-}
-// function endGame(){
-//   if (playerScore > dealerScore && playerScore < 22){
-//     alert('player wins');
-//   } else { 
-//   alert('Dealer wins');
-// }
-// handleDeckClick();
-// }
+
 function handleDeckStand() {
+  while (dealerScore < 21 && dealerScore <17){
   let hitCard = getRandomCard();
   while (usedCards.includes(hitCard)){
     hitCard = getRandomCard();
@@ -212,10 +197,24 @@ function handleDeckStand() {
   if (playerScore > 21){
     stand.removeEventListener('click', handleDeckStand);
   }
+  // endGameMessage();
   // checkDealerCards();
   stand.removeEventListener('click', handleDeckStand);
   hit.removeEventListener('click', handleHitClick);
+} if (dealerScore > 17){
+  stand.removeEventListener('click', handleDeckStand);
+  hit.removeEventListener('click', handleHitClick);
 }
+  if (playerScore > dealerScore || dealerScore>21){
+let article = document.getElementById('article');
+let p = document.createElement('p');
+p.textContent = (`You Win, Play Again? ${handleDeckClick}`)
+// div.style.display = block;
+article.appendChild(p);
+
+  }
+}
+
 
 
 // function checkDealerCards() {
@@ -247,5 +246,5 @@ function getScore(firstCard, secondCard) {
 }
 
 deckOfCards.addEventListener('click', handleDeckClick);
-hit.addEventListener('click', handleHitClick);
-stand.addEventListener('click', handleDeckStand);
+
+
