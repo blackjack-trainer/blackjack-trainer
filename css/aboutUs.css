@@ -1,0 +1,193 @@
+body {
+  background: linear-gradient(135deg, #449144 33%,#008a00 95%);
+}
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-family: 'Bebas Neue', cursive;
+  background-color: rgb(251, 62, 62);
+
+}
+#navBar {
+  list-style-type: none;
+  display: inline;
+  border: 6px solid black;
+  background-color: rgb(251, 62, 62);
+  border-radius: 5px;
+  float: right;
+  margin-left: 20px;
+  font-size: 2em;
+  font-family: 'Bebas Neue', cursive;
+  padding: 10px;
+}
+img {
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+article{
+  text-align: center;
+ 
+}
+article {
+  width: 50%;
+  
+}
+
+#imgCesar {
+  width: 250px;
+  height: 290px;
+}
+#imgRegan {
+  width: 250px;
+  height: 320px;
+}
+#imgChuck {
+  height: 320px;
+  width: 250px;
+}
+section article {
+  line-height: 22px;
+  margin-left: 30px;
+  font-style: italic;
+  float: right;
+  margin-right: 100px;
+  text-align: left;
+  font-style: normal;
+  /* font-family: 'Bebas Neue', cursive; */
+  font-size: 18px;
+}
+#chuckArt {
+  margin-right: 300px;
+}
+#reganArt {
+  margin-right: 300px;
+}
+h2 {
+  font-family: 'Bebas Neue', cursive;
+  text-decoration: underline;
+  font-style:normal;
+  background-color: rgb(251, 62, 62);
+  padding: 4px;
+  width: max-content;
+  border-radius: 3px;
+  margin-left: 250px;
+}
+#cesLink {
+  border-radius: 2px;
+  background-color: rgb(251, 62, 62);
+  color: rgb(0, 0, 0);
+  padding: 4px;
+  font-style: normal;
+  margin-bottom: 100px;
+}
+
+#cesGit {
+  border-radius: 2px;
+  background-color:rgb(251, 62, 62);
+  color: rgb(3, 3, 3);
+  padding: 4px;
+  font-style: normal;
+}
+#regLink {
+  border-radius: 2px;
+  background-color: rgb(251, 62, 62);
+  color: rgb(0, 0, 0);
+  padding: 4px;
+  font-style: normal;
+  margin-bottom: 100px;
+}
+#regGit {
+  border-radius: 2px;
+  background-color:rgb(251, 62, 62);
+  color: rgb(0, 0, 0);
+  padding: 4px;
+  font-style: normal;
+}
+#chuckLink {
+  border-radius: 2px;
+  background-color: rgb(251, 62, 62);
+  color: rgb(0, 0, 0);
+  padding: 4px;
+  font-style: normal;
+  margin-bottom: 100px;
+}
+#chuckGit {
+  border-radius: 2px;
+  background-color:rgb(251, 62, 62);
+  color: rgb(0, 0, 0);
+  padding: 4px;
+  font-style: normal;
+}
+
+#ces1 {
+  list-style-type: none;
+  display: inline-block;
+  font-weight: 900;
+}
+#ces1 :hover {
+  color: white;
+  text-decoration: underline;
+}
+#ces2 {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 400px;
+  font-weight: 900;
+}
+#ces2 :hover {
+  color: white;
+  text-decoration: underline;
+}
+#regLi{
+  list-style-type: none;
+  display: inline-block;
+  font-weight: 900;
+}
+#regLi :hover{
+  color: white;
+  text-decoration: underline;
+}
+#regLi2 {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 400px;
+  font-weight: 900;
+}
+#regLi2 :hover{
+  color: white;
+  text-decoration: underline;
+}
+#chuck1 {
+  list-style-type: none;
+  display: inline-block;
+  font-weight: 900;
+}
+#chuck1 :hover {
+  color: white;
+  text-decoration: underline;
+}
+#chuck2 {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 400px;
+  font-weight: 900;
+}
+#chuck2 :hover {
+  color: white;
+  text-decoration: underline;
+}
+
+
+
+
+#navBar :hover{
+  color: white;
+  text-decoration: underline;
+}
+#text {
+  font-family: 'Courier New', Courier, monospacex;
+}
