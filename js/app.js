@@ -2,6 +2,7 @@
 
 let allCards = [];
 
+let hitCount = 3;
 
 let indexCollection = [];
 
@@ -9,8 +10,10 @@ let imageOne = document.getElementById('image-one');
 let imageTwo = document.getElementById('image-two');
 let imageThree = document.getElementById('image-three');
 let imageFour = document.getElementById('image-four');
-
-
+let imageFive = document.getElementById('image-five');
+let deckOfCards = document.getElementById('deck-of-cards');
+let hit = document.getElementById('hit-button');
+let stand = document.getElementById('stand-button');
 
 
 
@@ -82,13 +85,13 @@ function getRandomCard() {
 }
 
 
-let cardOne, cardTwo, cardThree, cardFour;
+let cardOne, cardTwo, cardThree, cardFour, cardFive;
 let dealerScore = 0;
 let playerScore = 0;
 
 function renderCards() {
 
-  while (indexCollection.length < 4) {
+  while (indexCollection.length < 52) {
     let randomNum = getRandomCard();
     while (!indexCollection.includes(randomNum)) {
       indexCollection.push(randomNum);
@@ -98,7 +101,7 @@ function renderCards() {
   cardTwo = indexCollection.shift();
   cardThree = indexCollection.shift();
   cardFour = indexCollection.shift();
-
+  cardFive = indexCollection.shift();
 
   imageOne.src = allCards[cardOne].src;
   imageOne.alt = allCards[cardTwo].src;
@@ -117,26 +120,62 @@ function renderCards() {
   console.log(cardOne, cardTwo, cardThree, cardFour);
   dealerScore += getScore(cardOne, cardTwo);
   playerScore += getScore(cardThree, cardFour);
-  
+
+  let dealerSec = document.getElementById('dealer-cards');
+  let p = document.createElement('p');
+  p.textContent = `Dealer Score: ${dealerScore}`;
+  dealerSec.appendChild(p);
+
+  let playerSec = document.getElementById('player-cards');
+  p = document.createElement('p');
+  p.setAttribute('id', 'p1');
+  p.textContent = `Player Score: ${playerScore}`;
+  playerSec.appendChild(p);
 }
 
-// let dealScore = document.getElementById('deal-score');
-// let p = document.createElement('p');
-// p.textContent = `${dealer}`;
-// dealScore.appendChild(p);
+function handleDeckClick(){
+  renderCards();
+}
 
-// renderCards()a;
-console.log(allCards)
+function handleHitClick(){
+  hitCount ++;
+  // imageFive.src = allCards[hitCount].src;
+  // imageFive.alt = allCards[hitCount].src;
+  playerScore += allCards[hitCount].value;
+  let playerSec = document.getElementById('player-cards');
+  let img = document.createElement('img');
+  img.src = allCards[hitCount].src;
+  // img.src = allCards[hitCount].alt;
+  playerSec.appendChild(img);
+  let p1 = document.getElementById('p1');
+  p1.remove();
+  let p = document.createElement('p');
+  p.setAttribute('id', 'p1');
+  p.textContent = `Player Score: ${playerScore}`;
+  playerSec.appendChild(p);
+  checkCards();
+}
+function checkCards(){
+  if(playerScore > 21){
+    alert('You lost');// always alerts before function.
+  }
+}
+
+
+console.log(allCards);
 function getScore(firstCard, secondCard) {
   // console.log('card one', allCards[firstCard].value);
   // console.log(allCards[secondCard].value);
   let score = (allCards[firstCard].value + allCards[secondCard].value);
   // console.log('score', score);
   if (score > 21){
-    return "bust"
+    return 'bust';
   } else {
-    return score
+    return score;
   }
-  
+
 }
 
+deckOfCards.addEventListener('click', handleDeckClick);
+hit.addEventListener('click', handleHitClick);
+// stand.addEventListener('click', handleDeckStand);
