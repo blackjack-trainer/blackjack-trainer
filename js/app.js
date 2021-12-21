@@ -123,6 +123,7 @@ function renderCards() {
 
   let dealerSec = document.getElementById('dealer-cards');
   let p = document.createElement('p');
+  p.setAttribute('id', 'p2');
   p.textContent = `Dealer Score: ${dealerScore}`;
   dealerSec.appendChild(p);
 
@@ -133,12 +134,12 @@ function renderCards() {
   playerSec.appendChild(p);
 }
 
-function handleDeckClick(){
+function handleDeckClick() {
   renderCards();
 }
 
-function handleHitClick(){
-  hitCount ++;
+function handleHitClick() {
+  hitCount++;
   // imageFive.src = allCards[hitCount].src;
   // imageFive.alt = allCards[hitCount].src;
   playerScore += allCards[hitCount].value;
@@ -155,9 +156,32 @@ function handleHitClick(){
   playerSec.appendChild(p);
   checkCards();
 }
-function checkCards(){
-  if(playerScore > 21){
+function checkCards() {
+  if (playerScore > 21) {
     alert('You lost');// always alerts before function.
+  }
+}
+
+
+function handleDeckStand() {
+  hitCount++;
+
+  dealerScore += allCards[hitCount].value;
+  let dealerSec = document.getElementById('dealer-cards');
+  let img = document.createElement('img');
+  img.src = allCards[hitCount].src;
+  dealerSec.appendChild(img);
+  let p2 = document.getElementById('p2');
+  p2.remove();
+  let p = document.createElement('p');
+  p.setAttribute('id', 'p2');
+  p.textContent = `Dealer Score: ${dealerScore}`;
+  dealerSec.appendChild(p);
+  checkDealerCards();
+}
+function checkDealerCards() {
+  if (dealerScore > 21) {
+    alert('Dealer Bust You Win!');// always alerts before function.
   }
 }
 
@@ -168,7 +192,7 @@ function getScore(firstCard, secondCard) {
   // console.log(allCards[secondCard].value);
   let score = (allCards[firstCard].value + allCards[secondCard].value);
   // console.log('score', score);
-  if (score > 21){
+  if (score > 21) {
     return 'bust';
   } else {
     return score;
@@ -178,4 +202,4 @@ function getScore(firstCard, secondCard) {
 
 deckOfCards.addEventListener('click', handleDeckClick);
 hit.addEventListener('click', handleHitClick);
-// stand.addEventListener('click', handleDeckStand);
+stand.addEventListener('click', handleDeckStand);
