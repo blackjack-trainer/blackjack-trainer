@@ -1,0 +1,11 @@
+#hit-button {
+  border: 1px solid black;
+  width: max-content;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+#stand-button {
+  border: 1px solid black;
+  width: max-content;
+  font-size: 2em;
+}
