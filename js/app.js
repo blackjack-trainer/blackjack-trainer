@@ -14,12 +14,18 @@ let imageFive = document.getElementById('image-five');
 let deckOfCards = document.getElementById('deck-of-cards');
 let hit = document.getElementById('hit-button');
 let stand = document.getElementById('stand-button');
+let doubledown = document.getElementById('double-down')
 let cardOne, cardTwo, cardThree, cardFour, cardFive;
 let dealerScore = 0;
 let playerScore = 0;
 let usedCards = [];
+let playerBank = 100
 
 
+let section = document.getElementById('player-buttons')
+let div = document.createElement('div')
+div.textContent = (`name's bank ${playerBank}`)
+section.appendChild(div)
 
 function Cards(src, value) {
   this.src = `img/${src}`;
@@ -83,6 +89,8 @@ new Cards('three-diamonds.png', 3);
 new Cards('two-diamonds.png', 2);
 
 
+
+
 function getRandomCard() {
   return Math.floor(Math.random() * allCards.length);
 }
@@ -140,6 +148,7 @@ function handleDeckClick() {
   renderCards();
   hit.addEventListener('click', handleHitClick);
   stand.addEventListener('click', handleDeckStand);
+  doubledown.addEventListener('click', handleDoubleClick);
   deckOfCards.removeEventListener('click', handleDeckClick)
 }
 
@@ -205,7 +214,8 @@ function handleDeckStand() {
     stand.removeEventListener('click', handleDeckStand);
     hit.removeEventListener('click', handleHitClick);
   }
-  if (playerScore > dealerScore || dealerScore > 21) {
+  if (playerScore > dealerScore && playerScore < 22 || dealerScore > 21 && playerScore < 22) {
+    playerBank++
     let article = document.getElementById('article');
     let p = document.createElement('p');
     p.textContent = (`You Win, Play Again? ${handleDeckClick}`)
@@ -215,13 +225,14 @@ function handleDeckStand() {
   }
 }
 
+function handleDoubleClick (){
+  handleHitClick();
+  handleDeckStand();
+  doubledown.removeEventListener('click', handleDoubleClick);
+}
 
 
-// function checkDealerCards() {
-//   if (dealerScore > 21) {
-//     alert('Dealer Bust You Win!');
-//   }
-// }
+
 
 
 function aces(a, b) {
