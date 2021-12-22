@@ -131,17 +131,19 @@ function renderCards() {
   dealerScore += getScore(cardOne, cardTwo);
   playerScore += getScore(cardThree, cardFour);
 
-  let dealerSec = document.getElementById('dealer-cards');
+  let dealerSec = document.getElementById('dealer-score');
   let p = document.createElement('p');
   p.setAttribute('id', 'p2');
   p.textContent = `Dealer Score: ${dealerScore}`;
   dealerSec.appendChild(p);
 
-  let playerSec = document.getElementById('player-cards');
+  let playerSec = document.getElementById('player-score');
   p = document.createElement('p');
   p.setAttribute('id', 'p1');
   p.textContent = `Player Score: ${playerScore}`;
   playerSec.appendChild(p);
+  let playerButtons = document.getElementById('player-buttons');
+  playerButtons.style.marginTop = '0px';
 }
 
 function handleDeckClick() {
@@ -150,6 +152,15 @@ function handleDeckClick() {
   stand.addEventListener('click', handleDeckStand);
   doubledown.addEventListener('click', handleDoubleClick);
   deckOfCards.removeEventListener('click', handleDeckClick)
+  if (playerScore === 21 && dealerScore < 21){
+    let article = document.getElementById('article');
+    let p = document.createElement('p');
+    p.textContent = (`Blackjack! Congratulation!${'Play again'}`)
+    article.appendChild(p);
+    hit.removeEventListener('click', handleHitClick);
+    stand.removeEventListener('click', handleDeckStand)
+    doubledown.removeEventListener('click', handleDoubleClick);
+  }
 }
 
 function handleHitClick() {
@@ -160,24 +171,28 @@ function handleHitClick() {
   usedCards.push(hitCard);
 
   playerScore += allCards[hitCard].value;
-  let playerSec = document.getElementById('player-cards');
+  let playerSec = document.getElementById('player-hand');
+  let playerSc = document.getElementById('player-score');
   let img = document.createElement('img');
-  img.src = allCards[hitCard].src;
+  let width = img.offsetWidth;
+  img.src  = allCards[hitCard].src;
   playerSec.appendChild(img);
   let p1 = document.getElementById('p1');
   p1.remove();
   let p = document.createElement('p');
   p.setAttribute('id', 'p1');
   p.textContent = `Player Score: ${playerScore}`;
-  playerSec.appendChild(p);
+  playerSc.appendChild(p);
 
   if (playerScore >= 21) {
     hit.removeEventListener('click', handleHitClick);
-  }
-
-  if (playerScore > 21) {
+    handleDeckStand();
     stand.removeEventListener('click', handleDeckStand);
+    
   }
+  doubledown.removeEventListener('click', handleDoubleClick);
+
+ 
 
 }
 
@@ -190,7 +205,8 @@ function handleDeckStand() {
     usedCards.push(hitCard);
 
     dealerScore += allCards[hitCard].value;
-    let dealerSec = document.getElementById('dealer-cards');
+    let dealerSec = document.getElementById('dealer-hand');
+    let dealerSc = document.getElementById('dealer-score');
     let img = document.createElement('img');
     img.src = allCards[hitCard].src;
     dealerSec.appendChild(img);
@@ -199,15 +215,15 @@ function handleDeckStand() {
     let p = document.createElement('p');
     p.setAttribute('id', 'p2');
     p.textContent = `Dealer Score: ${dealerScore}`;
-    dealerSec.appendChild(p);
+    dealerSc.appendChild(p);
     if (playerScore > 21) {
       hit.removeEventListener('click', handleHitClick);
+      
     }
     if (playerScore > 21) {
       stand.removeEventListener('click', handleDeckStand);
     }
-    // endGameMessage();
-    // checkDealerCards();
+    
     stand.removeEventListener('click', handleDeckStand);
     hit.removeEventListener('click', handleHitClick);
   } if (dealerScore > 17) {
@@ -218,13 +234,26 @@ function handleDeckStand() {
     playerBank++
     let article = document.getElementById('article');
     let p = document.createElement('p');
-    p.textContent = (`You Win, Play Again? ${handleDeckClick}`)
-    // div.style.display = block;
+    p.textContent = (`You Win, Play Again? ${'Play again'}`)
+    
     article.appendChild(p);
-
+  } else if ( playerScore === dealerScore && playerScore < 22){
+    let article = document.getElementById('article');
+    let p = document.createElement('p');
+    p.textContent = (`Player Pushes ${'Play again'}`)
+    
+    article.appendChild(p);
+  } else {
+    playerBank--
+    let article = document.getElementById('article');
+    let p = document.createElement('p');
+    p.textContent = (`Dealer Wins, Play Again? ${'Play again'}`)
+    article.appendChild(p);
   }
+  doubledown.removeEventListener('click', handleDoubleClick);
 }
 
+//double down function, invokes then turns off hit, invokes stand, turns off double down.
 function handleDoubleClick (){
   handleHitClick();
   handleDeckStand();
@@ -244,10 +273,9 @@ function aces(a, b) {
 
 console.log(allCards);
 function getScore(firstCard, secondCard) {
-  // console.log('card one', allCards[firstCard].value);
-  // console.log(allCards[secondCard].value);
+  
   let score = (allCards[firstCard].value + allCards[secondCard].value);
-  // console.log('score', score);
+  
   if (score > 21) {
     return 'bust';
   } else {
