@@ -1,11 +1,12 @@
 body {
+  /* width: 960px; */
   
-  background-color: black
+  margin: auto;
 }
 
 main {
-  background-color: green;
-  
+  /* background-color: green; */
+  background-image: radial-gradient(1300px, green, black);
 }
 
 #hit-button {
@@ -31,6 +32,17 @@ main {
   background-color: red;
   /* position: fixed; */
 
+}
+
+#double-down{
+  border: 1px solid black;
+  width: max-content;
+  font-size: 5em;
+  padding: 10px;
+  float: right;
+  margin-right: 15em;
+  color: whitesmoke;
+  background-color: red;
 }
 
 #deck-of-cards{
