@@ -4,8 +4,6 @@ body {
  font-family: 'Source Sans Pro', sans-serif;
 }
 h1 {
-  /* text-align: center; */
-  font-family: 'Bebas Neue', cursive;
   background-color: rgba(146, 6, 6, 0.556);
   display: flex;
 
@@ -32,17 +30,11 @@ h1 {
 }
 img {
   width: 500px;
-  height: 600px;
+  height: 500px;
   border-radius: 5px;
 }
-#imgRegan{
-  cursor: grab;
-}
-#imgCesar{
-  cursor: grab;
-}
-#imgChuck{
-  cursor: grab;
+#selfie {
+  margin-left: -250px;
 }
 #images {
   margin: auto;
@@ -65,125 +57,222 @@ h3{
   display: flex;
 }
 
-.infocardContainer * {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-weight: 300;
-}
-h2 {
-  font-weight: 600; font-style: italic; font-family: "Fira Sans Condensed", sans-serif;
-}
-header {
-  height: 2em;
-  background-color: #111122;
-  margin: 0 0 0 0;
-  padding: auto;
-  font-size: 2em;
-  text-align: center;
-  line-height: 2em;
-  color: white;
-}
-a {
-  text-decoration: none;
-}
-a:visited {
-  color: #555566;
-}
-a:hover {
-  text-decoration: underline;
-}
-.infocardContainer {
-  display: flex;
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
-  background: rgb(0,159,255);
-  background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgba(0,159,255,1) 100%);
-  transition: all 500ms ease-in;
-  transition-delay: 1s;
-  margin: auto;
-  margin-top: 100px;
-  --margin-top: 100px;
-}
-.infocardContainer:hover {
-  width: 500px;
-  border-radius: 100px 10px 100px 100px;
-  transition: all 1s ease-out;
-}
 
-.infocardContainer div {
-  text-color: white;
-  flex-shrink: 1;
-  width: 100%;
-  --background-color: green;
-}
-.infocardContainer div * {
-  display: flex;
-  --flex: inherit;
-  overflow: hidden;
-  text-overflow: hidden;
-  --background-color: yellow;
-  color: white;
-  white-space: nowrap;
-  width: 0;
-  height: auto;
-  transition: all 450ms ease-in;
-  transition-delay: 1s;
-}
-.infocardContainer:hover div *{
-  --background-color: purple;
-  display: flex;
-  visibility: visible;
-  transition: all 1s ease-out;
-  transition-delay: 500ms;
-  width: 100%;
-  height: auto;
-}
-
-.infocardContainer #main, .infocardContainer #main img{
-  --background-color: red;
-  height: 200px;
-  width: 200px;
-  padding-right: 10px;
-  border-radius: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-}
-.infocardContainer #main img{
-  height: 180px;
-  width: 180px;
-  transition: none;
-  display: float;
-  position: relative;
-  border: 10px solid white;
-  margin: 0 0 0 0; padding: 0 0 0 0;
-}
-.infocardContainer #textbois {
-  position: relative;
-}
-.infocardContainer #textbois #hotlinks {
-  max-width: 60%;
-  max-height: 30px;
-  
-  --background-color: white;
-  position:absolute;
-  bottom: 5px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 13px;
-}
-.infocardContainer #textbois #hotlinks * {
-  background-color: white;
-  max-width: 30px;
-  --margin: 0 1px 0 1px;
-  border-radius: 25px;
-}
-div #main {
+.card-container {
+  position: absolute;
   width: max-content;
+  height: max-content;
+  background: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-/*TODO: animate copy main transition style for info*/
-.infocardContainer #textbois #hotlinks *:hover {
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+}
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  margin-right: 1000px;
+}
+.back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: purple;
+  color: white;
+  margin-right: 1000px;
+  transform: rotateY(180deg);
+}
+.flipCard {
+  transform: rotateY(180deg);
+}
+div.card.card.flipCard {
+  width: 1000px;
+  /* margin-right: 1000px; */
+}
+div.card-container{
+  margin-right: 1000px;
+}
+.card-reg {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  background: none;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cardReg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+}
+.frontReg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  margin-right: 1000px;
+}
+.backReg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: purple;
+  color: rgb(10, 9, 9);
+  margin-right: 1000px;
+  transform: rotateY(180deg);
   
+}
+.flipCardReg {
+  transform: rotateY(180deg);
+ 
+}
+div.cardReg.cardReg.flipCardReg {
+  width: 1000px;
+  margin-right: 1000px;
   
+}
+div.card-reg{
+  margin-right: 1000px;
+  
+}
+#pReg {
+  margin-right: -400px;
+  color: white;
+  margin-right: 120px;
+}
+h4{
+  background-color: rgba(146, 6, 6, 0.556);
+  text-align: center;
+  margin: auto;
+  height: 50px;
+  text-align: left;
+  border: 5px;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2em;
+}
+div.backReg{
+  margin-left: -500px;
+
 }
 
+/* Cesar Flip */
+.card-ces {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  background: none;
+  top: 250%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cardCes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+}
+.frontCes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  margin-right: 1000px;
+}
+.backCes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: purple;
+  color: rgb(10, 9, 9);
+  margin-right: 1000px;
+  transform: rotateY(180deg);
+  
+}
+.flipCardCes {
+  transform: rotateY(180deg);
+ 
+}
+div.cardCes.cardCes.flipCardCes {
+  width: 1000px;
+  margin-right: 1000px;
+  
+}
+div.card-ces{
+  margin-right: 1000px;
+  
+}
+#pCes {
+  margin-right: -400px;
+  color: white;
+  margin-right: 120px;
+}
+h5{
+  background-color: rgba(146, 6, 6, 0.556);
+  text-align: center;
+  margin: auto;
+  height: 50px;
+  text-align: left;
+  border: 5px;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2em;
+}
+div.backCes{
+  margin-left: -500px;
 
+}
+#linkedIn {
+  width: 60px;
+  height: 50px;
+}
+#GitHub {
+  width: 60px;
+  height: 50px;
+}
+div :hover{
+  cursor: grab;
+}
+
+button{
+  float: right;
+  position: absolute;
+  top: 675px;
+  right: 25px;
+  position: fixed;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+button :hover{
+  cursor: grab;
+}
+article {
+  width: max-content;
+  margin: auto;
+  font-size: 2em;
+  margin-left: -150px;
+  background-color: rgba(146, 6, 6, 0.556);
+  padding: 10px;
+  border-radius: 3px;
+  color: white;
+  margin-bottom: 10px;
+}
