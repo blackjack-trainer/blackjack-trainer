@@ -22,10 +22,11 @@ body {
   width: 100%;
   background-color: rgba(146, 6, 6, 0.556);
   overflow: auto;
+  display: flex
 }
 
 .bar a {
-  float: left;
+  /* float: left; */
   padding: 30px;
   color: white;
   text-decoration: none;
@@ -68,4 +69,28 @@ main > p {
   color: white;
 }
 
+body > p {
+  color: white;
+  font-size: 100px;
+  text-align: center;
+  margin: 100px;
+}
 
+input {
+  background-color: rgb(255, 175, 153);
+  color: rgb(111, 6, 6);
+  font-size: 2em;
+}
+
+label {
+  color: white;
+  font-size: 2em;
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  font-size: 2em;
+}
