@@ -12,7 +12,7 @@ main {
 #hit-button {
   border: 1px solid black;
   width: max-content;
-  font-size: 5em;
+  font-size: 2em;
   margin-bottom: 10px;
   padding: 10px;
   /* float: right; */
@@ -20,32 +20,39 @@ main {
   color: whitesmoke;
   background-color: red;
   display: inline-flex;
-  /* position: fixed; */
+  position: absolute;
+  left: 60%;
+  /* bottom: 9%; */
 }
 #stand-button {
   border: 1px solid black;
   width: max-content;
-  font-size: 5em;
+  font-size: 2em;
   padding: 10px;
   /* float: right; */
   margin-right: 15em;
   color: whitesmoke;
   background-color: red;
   display: inline-flex;
-  /* position: fixed; */
+  position: absolute;
+  left: 63%;
+  /* bottom: 9.7%; */
 
 }
 
 #double-down{
   border: 1px solid black;
   width: max-content;
-  font-size: 5em;
+  font-size: 2em;
   padding: 10px;
   /* float: right; */
   margin-right: 15em;
   color: whitesmoke;
   background-color: red;
   display: inline-flex;
+  position: absolute;
+  left: 67.5%;
+  /* bottom: 9.7%; */
 }
 
 #deck-of-cards{
@@ -65,24 +72,24 @@ article  {
   z-index: 2;
   background-color: red;
   width: max-content;
-  position: fixed;
-  
-
+  position: absolute;
+  left: 33%;
+  top: 45%;
 
 }
 
 aside {
-  /* float: right; */
   position: absolute;
   right: 5px;
   height: 100px;
   width: 200px;
-  /* background-color: black; */
-  /* margin-right: 50px; */
-  /* margin-left: 50px; */
-  /* margin-top: 10px; */
   font-size: 50px;
   padding: 60px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
  
 li {
@@ -92,6 +99,7 @@ li {
    padding: 3px;
    background-color: gold;
    color: whitesmoke;
+   list-style-type: none;
  }
 
  #dealer-cards {
@@ -125,9 +133,13 @@ img{
   height: 400px;
 }
 
-#player-buttons div {
+#player-buttons div4 {
   color: whitesmoke;
   font-size: 30px;
+  text-decoration: underline;
+  position: absolute;
+  left: 25%;
+  bottom: 10%;
 }
 #player-hand{
   margin-left: 30%;
@@ -148,4 +160,24 @@ img{
 }
 #player-buttons{
   margin-top: 20px;
+}
+
+#leaderboard{
+  background-color: rgba(0, 0, 0, 0.199);
+  width: 330px;
+  font-size: 40px;
+  position: absolute;
+  top: 42%;
+  left: 4%;
+  border: 10px inset gold;
+  box-shadow: 0px 10px 40px black;
+  text-align: center;
+}
+
+h1{
+  font-size: 50px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  text-align: center;
+  color: whitesmoke;
 }
