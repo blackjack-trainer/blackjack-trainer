@@ -21,8 +21,9 @@ let playerScore = 0;
 let usedCards = [];
 let score = localStorage.getItem('score');
 let allNames = JSON.parse(localStorage.getItem('name'));
-console.log(allNames.length);
+console.log(allNames);
 console.log(allNames[allNames.length-1].score);
+console.log(score);
 
 
 
@@ -142,6 +143,18 @@ function renderCards() {
   playerButtons.style.marginTop = '0px';
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 function handleDeckClick() {
   renderCards();
   hit.addEventListener('click', handleHitClick);
@@ -170,7 +183,7 @@ function handleDeckClick() {
     dealerSec.appendChild(p);
     let article = document.getElementById('article');
     p = document.createElement('p');
-    p.textContent = (`Dealer Has Blackjack${'Play again'}`)
+    p.textContent = (`Dealer Has Blackjack, ${'Play again'}`)
     article.appendChild(p);
     hit.removeEventListener('click', handleHitClick);
     stand.removeEventListener('click', handleDeckStand)
@@ -180,6 +193,38 @@ function handleDeckClick() {
   }
   document.getElementById('article').addEventListener('click', handleResetGame);
 }
+
+
+
+
+// function dealerAces() {
+//   while (dealerScore > 21) {
+//   allCards[0, 13, 26, 39].value = 1;
+//   } 
+// }
+// dealerAces();
+
+// function playerAces() {
+//   while (playerScore > 21) {
+//   allCards[0, 13, 26, 39].value = 1;
+//   } 
+// }
+// playerAces();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function handleHitClick() {
   let hitCard = getRandomCard();
@@ -209,10 +254,15 @@ function handleHitClick() {
     
   }
   doubledown.removeEventListener('click', handleDoubleClick);
-
- 
-
 }
+
+
+
+
+
+
+
+
 
 function handleHitClickDouble() {
   let hitCard = getRandomCard();
@@ -242,10 +292,17 @@ function handleHitClickDouble() {
     
   // }
   doubledown.removeEventListener('click', handleDoubleClick);
-
- 
-
 }
+
+
+
+
+
+
+
+
+
+
 
 function handleDeckStand() {
   if (dealerScore < 22){
@@ -321,6 +378,11 @@ function handleDeckStand() {
   document.getElementById('article').addEventListener('click', handleResetGame);
 }
 
+
+
+
+
+
 function handleDeckStandDouble() {
   if (dealerScore < 22){
 
@@ -394,10 +456,25 @@ function handleDeckStandDouble() {
   document.getElementById('article').addEventListener('click', handleResetGame);
 }
 
+
+
+
+
+
+
+
+
 function handleResetGame(){
   let reset = window.location.reload();
 
 }
+
+
+
+
+
+
+
 //double down function, invokes then turns off hit, invokes stand, turns off double down.
 function handleDoubleClick (){
   handleHitClickDouble();
@@ -409,11 +486,7 @@ function handleDoubleClick (){
 
 
 
-function aces(a, b) {
-  while (dealerScore > 21) {
-    allCards.value = 1;
-  } if (allCards.value = 11);
-}
+
 
 
 console.log(allCards);
@@ -429,9 +502,70 @@ function getScore(firstCard, secondCard) {
 
 }
 let section = document.getElementById('player-buttons')
-let div = document.createElement('div')
-div.textContent = (`${allNames[allNames.length-1].name} ${allNames[allNames.length-1].score}`)
-section.appendChild(div)
+let div4 = document.createElement('div4')
+div4.textContent = (`${allNames[allNames.length-1].name}'s bank $${allNames[allNames.length-1].score}`)
+section.appendChild(div4)
 
 deckOfCards.addEventListener('click', handleDeckClick);
 
+
+
+
+
+
+
+
+
+
+
+let leaderboardScores = [
+  {name: "Ripley", score: 175},
+  {name: "Reggie", score: 162},
+  {name: "Andy", score: 147},
+  {name: "Raul", score: 130},
+  {name: "Jessica", score: 125},
+  {name:`${allNames[allNames.length-1].name}`, score: `${allNames[allNames.length-1].score}`},
+];
+
+function updateLeaderboardView() {
+  let leaderboard = document.getElementById("leaderboard");
+  leaderboard.innerHTML = "";
+  let h1 = document.createElement('h1');
+  h1.textContent = 'Leaderboard';
+  leaderboard.appendChild(h1);
+
+  leaderboardScores.sort(function(a, b){ return b.score - a.score  });
+  let elements = []; 
+
+  for(let i=0; i<leaderboardScores.length; i++) {
+      let name = document.createElement("div");
+      let score = document.createElement("div");
+      name.classList.add("name");
+      score.classList.add("score");
+      name.innerText = leaderboardScores[i].name;
+      score.innerText = leaderboardScores[i].score;
+
+      let scoreRow = document.createElement("div");
+      scoreRow.classList.add("row");
+      scoreRow.appendChild(name);
+      scoreRow.appendChild(score);
+      leaderboard.appendChild(scoreRow);
+
+      elements.push(scoreRow);
+
+  }
+
+  let colors = ["gold", "silver", "#cd7f32", "white", "white", "white"];
+  for(let i=0; i < 6; i++) {
+      elements[i].style.color = colors[i];
+  }
+}
+
+updateLeaderboardView();
+function randomize() {
+  for(var i=0; i<leaderboardScores.length; i++) {
+      leaderboardScores[i].score = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
+  }
+  
+  updateLeaderboardView();
+}
