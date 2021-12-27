@@ -1,0 +1,96 @@
+h1 {
+  color: rgba(212, 10, 10, 0.734);
+  font-size: 180px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header {
+  background-image: url(/img/cards.jpeg);
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body {
+  background-color: black;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.bar {
+  width: 100%;
+  background-color: rgba(146, 6, 6, 0.556);
+  overflow: auto;
+  display: flex
+}
+
+.bar a {
+  /* float: left; */
+  padding: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  width: 30%;
+  text-align: center; 
+}
+
+.bar a:hover {
+  background-color: rgb(20, 130, 33);
+}
+
+@media screen and (max-width: 500px) {
+  .bar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+h2 {
+  font-size: 30px;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2.5em;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+main > p {
+  font-size: 3em;
+  padding: 40px;
+  background-color: rgba(212, 10, 10, 0.38);
+  color: white;
+}
+
+body > p {
+  color: white;
+  font-size: 100px;
+  text-align: center;
+  margin: 100px;
+}
+
+input {
+  background-color: rgb(255, 175, 153);
+  color: rgb(111, 6, 6);
+  font-size: 2em;
+}
+
+label {
+  color: white;
+  font-size: 2em;
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  font-size: 2em;
+}
