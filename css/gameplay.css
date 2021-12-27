@@ -1,6 +1,6 @@
 body {
-  /* width: 960px; */
-  background-image: radial-gradient(1400px, green, black);
+  width: 1900px;
+  background-image: radial-gradient(1200px, green, black);
   margin: auto;
 }
 
@@ -86,11 +86,11 @@ aside {
 }
  
 li {
-   border: 8px solid black;
+   border: 10px groove gold;;
    margin: 5px;
    text-decoration: none;
    padding: 3px;
-   background-color: red;
+   background-color: gold;
    color: whitesmoke;
  }
 
