@@ -255,7 +255,7 @@ div :hover{
 button{
   float: right;
   position: absolute;
-  top: 675px;
+  top: 550px;
   right: 25px;
   position: fixed;
   background-color: red;
