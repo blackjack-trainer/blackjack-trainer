@@ -63,14 +63,12 @@ h3{
   width: max-content;
   height: max-content;
   background: none;
-  top: 50%;
+  top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .card {
   position: relative;
-  width: 100%;
-  height: 100%;
   transform-style: preserve-3d;
   transition: all 0.8s ease;
 }
@@ -107,14 +105,12 @@ div.card-container{
   width: max-content;
   height: max-content;
   background: none;
-  top: 150%;
+  top: 1000px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .cardReg {
   position: relative;
-  width: 100%;
-  height: 100%;
   transform-style: preserve-3d;
   transition: all 0.8s ease;
 }
@@ -177,14 +173,12 @@ div.backReg{
   width: max-content;
   height: max-content;
   background: none;
-  top: 250%;
+  top: 1700px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .cardCes {
   position: relative;
-  width: 100%;
-  height: 100%;
   transform-style: preserve-3d;
   transition: all 0.8s ease;
 }
@@ -252,7 +246,7 @@ div :hover{
   cursor: grab;
 }
 
-button{
+/* button{
   float: right;
   position: absolute;
   top: 550px;
@@ -261,7 +255,19 @@ button{
   background-color: red;
   color: white;
   border-radius: 5px;
+} */
+#foo{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(146, 6, 6, 0.556);
+  border-radius: 2px;
+  width: 150px;
+  font-size: 20px;
+  color: whitesmoke;
 }
+
+
 button :hover{
   cursor: grab;
 }
@@ -276,3 +282,5 @@ article {
   color: white;
   margin-bottom: 10px;
 }
+
+
