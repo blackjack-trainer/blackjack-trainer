@@ -6,7 +6,7 @@ h1 {
 }
 
 header {
-  background-image: url(/img/cards.jpeg);
+  background-image: url(../img/cards.jpeg);
   height: 300px;
   width: 100%;
   background-position: center;
