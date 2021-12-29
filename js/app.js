@@ -119,7 +119,7 @@ function renderCards() {
   // console.log(allCards[cardThree].value + allCards[cardFour].value);
 
   imageTwo.src = (cardBack);
-  imageTwo.value = 0;
+  // imageTwo.value = 0;
   // imageTwo.alt = allCards[cardTwo].src;
 
   imageThree.src = allCards[cardThree].src;
@@ -143,7 +143,7 @@ function renderCards() {
   playerButtons.style.marginTop = '0px';
 }
 
-
+console.log(allCards[0].value, allCards[13].value);
 
 
 
@@ -165,7 +165,7 @@ function handleDeckClick() {
     allNames[allNames.length-1].score += 3;
     let article = document.getElementById('article');
     let p = document.createElement('p');
-    p.textContent = (`Blackjack! Congratulations!${'Play again'}`)
+    p.textContent = (`Blackjack! Congratulations! ${'Play again'}`)
     article.appendChild(p);
     hit.removeEventListener('click', handleHitClick);
     stand.removeEventListener('click', handleDeckStand)
@@ -199,7 +199,7 @@ function handleDeckClick() {
 
 // function dealerAces() {
 //   while (dealerScore > 21) {
-//   allCards[0, 13, 26, 39].value = 1;
+//   allCards[0].value = 1, allCards[13].value = 1, allCards[26].value = 1, allCards[39].value = 1
 //   } 
 // }
 // dealerAces();
@@ -234,6 +234,9 @@ function handleHitClick() {
   usedCards.push(hitCard);
 
   playerScore += allCards[hitCard].value;
+  // if (playerScore > 21 && (cardThree === 0 || cardThree === 13 || cardThree === 26 || cardThree === 39 || cardFour === 0 || cardFour === 13 || cardFour === 26 || cardFour === 39 || hitCard === 0 || hitCard === 13 || hitCard === 26 || hitCard === 39 )){
+  //   playerScore -= 10;
+  // }
   let playerSec = document.getElementById('player-hand');
   let playerSc = document.getElementById('player-score');
   let img = document.createElement('img');
@@ -320,8 +323,13 @@ function handleDeckStand() {
     while (usedCards.includes(hitCard)) {
       hitCard = getRandomCard();
     }
-    usedCards.push(hitCard);
     dealerScore += allCards[hitCard].value;
+    
+  // if (dealerScore > 21 && (cardOne === 0 || cardOne === 13 || cardOne === 26 || cardOne === 39 || cardTwo === 0 || cardTwo === 13 || cardTwo === 26 || cardTwo === 39 || hitCard === 0 || hitCard === 13 || hitCard === 26 || hitCard === 39 )){
+  //   dealerScore -= 10;
+    
+  // }
+    usedCards.push(hitCard);
     let dealerSec = document.getElementById('dealer-hand');
     let dealerSc = document.getElementById('dealer-score');
     let img = document.createElement('img');
