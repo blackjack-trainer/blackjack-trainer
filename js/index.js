@@ -1,6 +1,6 @@
 'use strict'
 
-// Submit form
+// Submit form and local storage
 
 const nameForm = document.getElementById('user-name');
 let allNames = [];
